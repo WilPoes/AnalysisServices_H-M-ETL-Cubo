@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{BF777CFE-B2B9-4664-9DCD-B376C00E4C33}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{2EA3CF3D-8A73-47A1-89C4-1C2056F91F54}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1628,7 +1628,7 @@ ON tie.DepartamentoID = dep.DepartamentoID</property>
         <NodeLayout
           Size="168,41.6"
           Id="Package\ProductoProveedor"
-          TopLeft="19.2857143267688,132.294117531098" />
+          TopLeft="18.5714286109625,131.529411649415" />
         <NodeLayout
           Size="110.4,41.6"
           Id="Package\Cliente"
@@ -1640,7 +1640,7 @@ ON tie.DepartamentoID = dep.DepartamentoID</property>
         <NodeLayout
           Size="152,41.6"
           Id="Package\EmpleadoCargo"
-          TopLeft="479.285715305988,132.294117531098" />
+          TopLeft="477.142858158569,127.705882241002" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
