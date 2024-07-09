@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-7N4I3C4.AlicorpDataMart.sa"
+  DTS:DTSID="{6C7E01F9-61E2-4F5C-8B20-3A43A9AE81DB}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-7N4I3C4;User ID=sa;Initial Catalog=AlicorpDataMart;Provider=SQLOLEDB.1;Application Name=SSIS-ISP_Alicorp-{6C7E01F9-61E2-4F5C-8B20-3A43A9AE81DB}DESKTOP-7N4I3C4.AlicorpDataMart.sa;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAvI9ezHlaw0K2SmCPNTlQBQAAAAACAAAAAAAQZgAAAAEAACAAAABLDtXx0ejmtYZOmlGi/DMDben1enuY0vd3oWuu9Pa4TwAAAAAOgAAAAAIAACAAAAAv6RCIl7iODwvN1fnjt2+PruBlK1FtPdbSBWJpPkpRroAAAACU2SyYEjYWbiDRGpmX3/CQkm+sDwJ6y/WZ7wxG+Z9rjF0ElLBXjzHXThoLTY0fPzmVNiUmuSP2kXFmwunoThD4i7bzd+EWkLfXK/630rpIsytDj8xTyeFDEe2f243TGMXzFroqOTZ4Q0iOAoLx9pJj3OldSWMUznTcgKMO59tSYEAAAADngXiBmcY6XZDM6Jr3yAENAExYorNXDXuxofjIeWbgabycjVE71+1WtL4J6gqgO7BgmaGuXuOdvoEtaT7yol58</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

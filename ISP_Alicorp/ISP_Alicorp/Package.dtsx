@@ -1,0 +1,1885 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/9/2024 2:41:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-7N4I3C4"
+  DTS:CreatorName="DESKTOP-7N4I3C4\William"
+  DTS:DTSID="{BF9B82EC-723F-4B62-8335-D36130BEA993}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{BF777CFE-B2B9-4664-9DCD-B376C00E4C33}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Cliente"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BCD00D26-0E8B-49EE-A8D8-963F173C4D1D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cliente"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Cliente\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Cliente\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cliente\Data Conversion.Inputs[Data Conversion Input].Columns[Genero]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Genero"
+                      lineageId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Genero]" />
+                    <inputColumn
+                      refId="Package\Cliente\Data Conversion.Inputs[Data Conversion Input].Columns[FechaNacimiento]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FechaNacimiento"
+                      lineageId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaNacimiento]" />
+                    <inputColumn
+                      refId="Package\Cliente\Data Conversion.Inputs[Data Conversion Input].Columns[Nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Nombre"
+                      lineageId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nombre]" />
+                    <inputColumn
+                      refId="Package\Cliente\Data Conversion.Inputs[Data Conversion Input].Columns[Apellido]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Apellido"
+                      lineageId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Apellido]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cliente\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Cliente\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cliente\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Genero]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Cliente\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Genero]"
+                      name="Copy of Genero"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Genero]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cliente\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaNacimiento]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Cliente\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaNacimiento]"
+                      name="Copy of FechaNacimiento"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaNacimiento]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cliente\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Cliente\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Nombre]"
+                      name="Copy of Nombre"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nombre]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cliente\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Apellido]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Cliente\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Apellido]"
+                      name="Copy of Apellido"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Apellido]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cliente\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Cliente\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cliente\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cliente\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cliente\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cliente\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cliente\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+clie.Genero, 
+clie.FechaNacimiento,
+clie.Nombre,
+clie.Apellido
+FROM Cliente clie</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cliente\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{7294F5F6-06B9-42B3-8932-26DF7A9134C6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-7N4I3C4.Alicorp.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Genero]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Genero]"
+                      length="50"
+                      lineageId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Genero]"
+                      name="Genero"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaNacimiento]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaNacimiento]"
+                      length="10"
+                      lineageId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaNacimiento]"
+                      name="FechaNacimiento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nombre]"
+                      length="255"
+                      lineageId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nombre]"
+                      name="Nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Apellido]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Apellido]"
+                      length="255"
+                      lineageId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].Columns[Apellido]"
+                      name="Apellido"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Genero]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Genero" />
+                    <externalMetadataColumn
+                      refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaNacimiento]"
+                      dataType="wstr"
+                      length="10"
+                      name="FechaNacimiento" />
+                    <externalMetadataColumn
+                      refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Apellido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Apellido" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Genero]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Genero]"
+                      name="Genero" />
+                    <outputColumn
+                      refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaNacimiento]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaNacimiento]"
+                      name="FechaNacimiento" />
+                    <outputColumn
+                      refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nombre]"
+                      name="Nombre" />
+                    <outputColumn
+                      refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Apellido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Apellido]"
+                      name="Apellido" />
+                    <outputColumn
+                      refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Cliente.Paths[OLE DB Source Output]"
+              endId="Package\Cliente\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Cliente\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EmpleadoCargo"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{EE020D7F-F6A5-4B7C-9515-8D3D2E4E6B36}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EmpleadoCargo"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\EmpleadoCargo\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\EmpleadoCargo\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\EmpleadoCargo\Data Conversion.Inputs[Data Conversion Input].Columns[Nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Nombre"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nombre]" />
+                    <inputColumn
+                      refId="Package\EmpleadoCargo\Data Conversion.Inputs[Data Conversion Input].Columns[Apellido]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Apellido"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[Apellido]" />
+                    <inputColumn
+                      refId="Package\EmpleadoCargo\Data Conversion.Inputs[Data Conversion Input].Columns[Cargo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Cargo"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cargo]" />
+                    <inputColumn
+                      refId="Package\EmpleadoCargo\Data Conversion.Inputs[Data Conversion Input].Columns[FechaContratacionInicial]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FechaContratacionInicial"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaContratacionInicial]" />
+                    <inputColumn
+                      refId="Package\EmpleadoCargo\Data Conversion.Inputs[Data Conversion Input].Columns[FechaContratacionFinal]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FechaContratacionFinal"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaContratacionFinal]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\EmpleadoCargo\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Nombre]"
+                      name="Copy of Nombre"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nombre]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Apellido]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Apellido]"
+                      name="Copy of Apellido"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[Apellido]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cargo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Cargo]"
+                      name="Copy of Cargo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cargo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaContratacionInicial]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaContratacionInicial]"
+                      name="Copy of FechaContratacionInicial"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaContratacionInicial]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaContratacionFinal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaContratacionFinal]"
+                      name="Copy of FechaContratacionFinal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaContratacionFinal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\EmpleadoCargo\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\EmpleadoCargo\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\EmpleadoCargo\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+emp.Nombre AS Nombre,
+emp.Apellido AS Apellido,
+emp.Cargo AS Cargo,
+FechaContratacion AS FechaContratacionInicial,
+FechaFinalizacion AS FechaContratacionFinal
+FROM Empleado AS emp</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\EmpleadoCargo\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{7294F5F6-06B9-42B3-8932-26DF7A9134C6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-7N4I3C4.Alicorp.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nombre]"
+                      length="255"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nombre]"
+                      name="Nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[Apellido]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Apellido]"
+                      length="255"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[Apellido]"
+                      name="Apellido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cargo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cargo]"
+                      length="255"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cargo]"
+                      name="Cargo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaContratacionInicial]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaContratacionInicial]"
+                      length="10"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaContratacionInicial]"
+                      name="FechaContratacionInicial"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaContratacionFinal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaContratacionFinal]"
+                      length="10"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaContratacionFinal]"
+                      name="FechaContratacionFinal"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Apellido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Apellido" />
+                    <externalMetadataColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cargo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Cargo" />
+                    <externalMetadataColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaContratacionInicial]"
+                      dataType="wstr"
+                      length="10"
+                      name="FechaContratacionInicial" />
+                    <externalMetadataColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaContratacionFinal]"
+                      dataType="wstr"
+                      length="10"
+                      name="FechaContratacionFinal" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nombre]"
+                      name="Nombre" />
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Apellido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Apellido]"
+                      name="Apellido" />
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cargo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cargo]"
+                      name="Cargo" />
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaContratacionInicial]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaContratacionInicial]"
+                      name="FechaContratacionInicial" />
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaContratacionFinal]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaContratacionFinal]"
+                      name="FechaContratacionFinal" />
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\EmpleadoCargo.Paths[OLE DB Source Output]"
+              endId="Package\EmpleadoCargo\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\EmpleadoCargo\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ProductoProveedor"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B38AEC72-06AC-470E-B867-74BC148823ED}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ProductoProveedor"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ProductoProveedor\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ProductoProveedor\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ProductoProveedor\Data Conversion.Inputs[Data Conversion Input].Columns[Producto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Producto"
+                      lineageId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Output].Columns[Producto]" />
+                    <inputColumn
+                      refId="Package\ProductoProveedor\Data Conversion.Inputs[Data Conversion Input].Columns[Proveedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Proveedor"
+                      lineageId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Output].Columns[Proveedor]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ProductoProveedor\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\ProductoProveedor\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProductoProveedor\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Producto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\ProductoProveedor\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Producto]"
+                      name="Copy of Producto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Output].Columns[Producto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ProductoProveedor\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Proveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\ProductoProveedor\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Proveedor]"
+                      name="Copy of Proveedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Output].Columns[Proveedor]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ProductoProveedor\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\ProductoProveedor\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProductoProveedor\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ProductoProveedor\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ProductoProveedor\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ProductoProveedor\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ProductoProveedor\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Cliente]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+prod.NombreProducto AS Producto ,
+prov.NombreProveedor AS Proveedor 
+FROM producto prod
+INNER JOIN Proveedor prov
+ON (prod.ProveedorID = prov.ProveedorID)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ProductoProveedor\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{7294F5F6-06B9-42B3-8932-26DF7A9134C6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-7N4I3C4.Alicorp.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Output].Columns[Producto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Producto]"
+                      length="255"
+                      lineageId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Output].Columns[Producto]"
+                      name="Producto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Output].Columns[Proveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Proveedor]"
+                      length="255"
+                      lineageId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Output].Columns[Proveedor]"
+                      name="Proveedor"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Producto" />
+                    <externalMetadataColumn
+                      refId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Proveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Proveedor" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Producto]"
+                      name="Producto" />
+                    <outputColumn
+                      refId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Proveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Proveedor]"
+                      name="Proveedor" />
+                    <outputColumn
+                      refId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ProductoProveedor.Paths[OLE DB Source Output]"
+              endId="Package\ProductoProveedor\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\ProductoProveedor\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TiendaPromocion"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2F33C922-81AB-475E-8C00-9EFC62EA7DAC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TiendaPromocion"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\TiendaPromocion\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\TiendaPromocion\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TiendaPromocion\Data Conversion.Inputs[Data Conversion Input].Columns[Promocion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Promocion"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[Promocion]" />
+                    <inputColumn
+                      refId="Package\TiendaPromocion\Data Conversion.Inputs[Data Conversion Input].Columns[StockInicial]"
+                      cachedDataType="i4"
+                      cachedName="StockInicial"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[StockInicial]" />
+                    <inputColumn
+                      refId="Package\TiendaPromocion\Data Conversion.Inputs[Data Conversion Input].Columns[FechaInicial]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FechaInicial"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaInicial]" />
+                    <inputColumn
+                      refId="Package\TiendaPromocion\Data Conversion.Inputs[Data Conversion Input].Columns[FechaFinal]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FechaFinal"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaFinal]" />
+                    <inputColumn
+                      refId="Package\TiendaPromocion\Data Conversion.Inputs[Data Conversion Input].Columns[Descuento]"
+                      cachedDataType="numeric"
+                      cachedName="Descuento"
+                      cachedPrecision="5"
+                      cachedScale="2"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[Descuento]" />
+                    <inputColumn
+                      refId="Package\TiendaPromocion\Data Conversion.Inputs[Data Conversion Input].Columns[Tienda]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Tienda"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tienda]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\TiendaPromocion\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Promocion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Promocion]"
+                      name="Copy of Promocion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[Promocion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StockInicial]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StockInicial]"
+                      name="Copy of StockInicial"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[StockInicial]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaInicial]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaInicial]"
+                      name="Copy of FechaInicial"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaInicial]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaFinal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FechaFinal]"
+                      name="Copy of FechaFinal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaFinal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Descuento]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Descuento]"
+                      name="Copy of Descuento"
+                      precision="5"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[Descuento]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tienda]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Tienda]"
+                      name="Copy of Tienda"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tienda]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\TiendaPromocion\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TiendaPromocion\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TiendaPromocion\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+prom.NombrePromocion AS Promocion,
+prom.Stock AS StockInicial,
+prom.FechaInicio AS FechaInicial,
+prom.FechaFin AS FechaFinal,
+prom.Descuento AS Descuento,
+tie.Nombre AS Tienda,
+dep.NombreDepartamento AS Departamento,
+dep.CodigoPostal AS CodigoPostal
+FROM Tienda AS tie
+INNER JOIN Promocion AS prom
+ON tie.promocionID = prom.PromocionID
+INNER JOIN Departamento AS dep
+ON tie.DepartamentoID = dep.DepartamentoID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TiendaPromocion\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{7294F5F6-06B9-42B3-8932-26DF7A9134C6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-7N4I3C4.Alicorp.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[Promocion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Promocion]"
+                      length="255"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[Promocion]"
+                      name="Promocion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[StockInicial]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StockInicial]"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[StockInicial]"
+                      name="StockInicial"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaInicial]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaInicial]"
+                      length="10"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaInicial]"
+                      name="FechaInicial"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaFinal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaFinal]"
+                      length="10"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[FechaFinal]"
+                      name="FechaFinal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[Descuento]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Descuento]"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[Descuento]"
+                      name="Descuento"
+                      precision="5"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tienda]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Tienda]"
+                      length="255"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tienda]"
+                      name="Tienda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[Departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Departamento]"
+                      length="255"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[Departamento]"
+                      name="Departamento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[CodigoPostal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CodigoPostal]"
+                      length="10"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].Columns[CodigoPostal]"
+                      name="CodigoPostal"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Promocion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Promocion" />
+                    <externalMetadataColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StockInicial]"
+                      dataType="i4"
+                      name="StockInicial" />
+                    <externalMetadataColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaInicial]"
+                      dataType="wstr"
+                      length="10"
+                      name="FechaInicial" />
+                    <externalMetadataColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FechaFinal]"
+                      dataType="wstr"
+                      length="10"
+                      name="FechaFinal" />
+                    <externalMetadataColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Descuento]"
+                      dataType="numeric"
+                      name="Descuento"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Tienda]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Tienda" />
+                    <externalMetadataColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Departamento" />
+                    <externalMetadataColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CodigoPostal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CodigoPostal" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Promocion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Promocion]"
+                      name="Promocion" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StockInicial]"
+                      dataType="i4"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StockInicial]"
+                      name="StockInicial" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaInicial]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaInicial]"
+                      name="FechaInicial" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaFinal]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FechaFinal]"
+                      name="FechaFinal" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Descuento]"
+                      dataType="numeric"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Descuento]"
+                      name="Descuento"
+                      precision="5"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Tienda]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Tienda]"
+                      name="Tienda" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Departamento]"
+                      name="Departamento" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CodigoPostal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CodigoPostal]"
+                      name="CodigoPostal" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\TiendaPromocion.Paths[OLE DB Source Output]"
+              endId="Package\TiendaPromocion\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\TiendaPromocion\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\ProductoProveedor"
+          TopLeft="19.2857143267688,132.294117531098" />
+        <NodeLayout
+          Size="110.4,41.6"
+          Id="Package\Cliente"
+          TopLeft="195.71428613091,129.99999988605" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\TiendaPromocion"
+          TopLeft="312.142857807327,128.470588122685" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\EmpleadoCargo"
+          TopLeft="479.285715305988,132.294117531098" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ProductoProveedor">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\ProductoProveedor\OLE DB Source"
+          TopLeft="256.42857197444,65.7647058247072" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\ProductoProveedor\Data Conversion"
+          TopLeft="270.714286290565,152.941176336529" />
+        <EdgeLayout
+          Id="Package\ProductoProveedor.Paths[OLE DB Source Output]"
+          TopLeft="331.22857197444,107.364705824707">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.0857143161247,45.5764705118222"
+              Start="0,0"
+              End="17.0857143161247,38.0764705118222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7882352559111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7882352559111"
+                    Point2="0,22.7882352559111"
+                    Point3="4,22.7882352559111" />
+                  <mssgle:LineSegment
+                    End="13.0857143161247,22.7882352559111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.0857143161247,22.7882352559111"
+                    Point2="17.0857143161247,22.7882352559111"
+                    Point3="17.0857143161247,26.7882352559111" />
+                  <mssgle:LineSegment
+                    End="17.0857143161247,38.0764705118222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ProductoProveedor\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Cliente">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Cliente\OLE DB Source"
+          TopLeft="273.999995917082,166.999997511506" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Cliente\Data Conversion"
+          TopLeft="283.99999576807,283.99999576807" />
+        <EdgeLayout
+          Id="Package\Cliente.Paths[OLE DB Source Output]"
+          TopLeft="348.799995917082,208.599997511506">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.7999998509883,75.3999982565642"
+              Start="0,0"
+              End="12.7999998509883,67.8999982565642">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.6999991282821" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.6999991282821"
+                    Point2="0,37.6999991282821"
+                    Point3="4,37.6999991282821" />
+                  <mssgle:LineSegment
+                    End="8.79999985098834,37.6999991282821" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.79999985098834,37.6999991282821"
+                    Point2="12.7999998509883,37.6999991282821"
+                    Point3="12.7999998509883,41.6999991282821" />
+                  <mssgle:LineSegment
+                    End="12.7999998509883,67.8999982565642" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cliente\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\TiendaPromocion">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\TiendaPromocion\OLE DB Source"
+          TopLeft="269.999995976687,150.999997749925" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\TiendaPromocion\Data Conversion"
+          TopLeft="316.999995276332,250.999996259809" />
+        <EdgeLayout
+          Id="Package\TiendaPromocion.Paths[OLE DB Source Output]"
+          TopLeft="344.799995976687,192.599997749925">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49.7999992996454,58.3999985098839"
+              Start="0,0"
+              End="49.7999992996454,50.8999985098839">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.199999254942" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.199999254942"
+                    Point2="0,29.199999254942"
+                    Point3="4,29.199999254942" />
+                  <mssgle:LineSegment
+                    End="45.7999992996454,29.199999254942" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45.7999992996454,29.199999254942"
+                    Point2="49.7999992996454,29.199999254942"
+                    Point3="49.7999992996454,33.199999254942" />
+                  <mssgle:LineSegment
+                    End="49.7999992996454,50.8999985098839" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TiendaPromocion\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\EmpleadoCargo">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\EmpleadoCargo\OLE DB Source"
+          TopLeft="334.999995008111,126.999998107553" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\EmpleadoCargo\Data Conversion"
+          TopLeft="366.999994531274,197.99999704957" />
+        <EdgeLayout
+          Id="Package\EmpleadoCargo.Paths[OLE DB Source Output]"
+          TopLeft="409.799995008111,168.599998107553">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.7999995231629,29.3999989420175"
+              Start="0,0"
+              End="34.7999995231629,21.8999989420175">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.6999994710088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.6999994710088"
+                    Point2="0,14.6999994710088"
+                    Point3="4,14.6999994710088" />
+                  <mssgle:LineSegment
+                    End="30.7999995231629,14.6999994710088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.7999995231629,14.6999994710088"
+                    Point2="34.7999995231629,14.6999994710088"
+                    Point3="34.7999995231629,18.6999994710088" />
+                  <mssgle:LineSegment
+                    End="34.7999995231629,21.8999989420175" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\EmpleadoCargo\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
