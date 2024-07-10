@@ -1,4 +1,5 @@
 --FORMATO--
+drop table DetalleVenta
 drop table Venta;
 drop table FaseDiseno;
 
@@ -7,13 +8,56 @@ drop table Departamento;
 drop table Promocion;
 drop table Producto;
 
-drop table Proveedor;
+drop table ProveedoresImportadores;
+
+drop table ProveedoresMaterial;
 drop table Fabricacion;
 drop table Empleado;
 drop table Cliente;
 
-CREATE TABLE Proveedor (
-    ProveedorID INT IDENTITY(1,1) PRIMARY KEY,
+CREATE TABLE Proveedor(
+	ProveedorID INT IDENTITY(1,1) PRIMARY KEY,
+    NombreProveedor VARCHAR(255) NOT NULL,
+    Telefono VARCHAR(20),
+    CorreoElectronico VARCHAR(255),
+    Direccion VARCHAR(255),
+    RucProveedor VARCHAR(20),
+	Estado BIT NOT NULL
+);
+
+CREATE TABLE FaseDisenos (
+    FaseDisenoID INT IDENTITY(1,1) PRIMARY KEY,
+    ProveedorMaterialID INT NOT NULL,
+    TallasDisponibles VARCHAR(100), -- Ejemplo: S, M, L, XL
+	CostoFabricacion DECIMAL(10, 2),
+	TiempoProduccion INT, -- Tiempo estimado en días
+	EstadoFabricacion VARCHAR(50),
+    Aprobado BIT NOT NULL
+);
+
+CREATE TABLE ProveedoresMaterial (
+    ProveedorMaterialID INT IDENTITY(1,1) PRIMARY KEY,
+	ProveedorID INT NOT NULL,
+	FaseDisenoID INT NOT NULL,
+    Material VARCHAR(255) NOT NULL,
+    Color VARCHAR(50),
+    CostoUnitario DECIMAL(10, 2)
+	FOREIGN KEY (ProveedorID) REFERENCES Proveedor(ProveedorID),
+	FOREIGN KEY (FaseDisenoID) REFERENCES FaseDisenos(FaseDisenoID),
+);
+
+CREATE TABLE Fabricacion (
+    FabricacionID INT IDENTITY(1,1) PRIMARY KEY,
+	FaseDisenoID INT NOT NULL,
+	FechaFabricacion DATE NOT NULL,
+	FechaEmbalaje DATE NOT NULL,	
+    NombreFabricacion VARCHAR(255) NOT NULL,
+    DetallesFabricacion VARCHAR(255),
+	FOREIGN KEY (FaseDisenoID) REFERENCES FaseDisenos(FaseDisenoID)
+);
+
+CREATE TABLE ProveedoresImportadores (
+    ProveedorImportadorID INT IDENTITY(1,1) PRIMARY KEY,
     NombreProveedor VARCHAR(255) NOT NULL,
     Telefono VARCHAR(20),
     CorreoElectronico VARCHAR(255),
@@ -21,39 +65,23 @@ CREATE TABLE Proveedor (
     RucProveedor VARCHAR(20)
 );
 
-CREATE TABLE Fabricacion (
-    FabricacionID INT IDENTITY(1,1) PRIMARY KEY,
-	FechaFabricacion DATE NOT NULL,
-	FechaEmbalaje DATE NOT NULL,	
-    NombreFabricacion VARCHAR(255) NOT NULL,
-    DetallesFabricacion VARCHAR(255) -- Puedes añadir más detalles según sea necesario
-);
-
 CREATE TABLE Producto (
     ProductoID INT IDENTITY(1,1) PRIMARY KEY,
-    NombreProducto VARCHAR(255) NOT NULL,
+    ProveedorImportadorID INT,
+	FabricacionID INT,
+	NombreProducto VARCHAR(255) NOT NULL,
+	Stock INT,
     Categoria VARCHAR(255) NOT NULL,
     Marca VARCHAR(255),
-    Precio DECIMAL(10, 2) NOT NULL
+    Precio DECIMAL(10, 2) NOT NULL,
+	FOREIGN KEY (ProveedorImportadorID) REFERENCES ProveedoresImportadores(ProveedorImportadorID),
+	FOREIGN KEY (FabricacionID) REFERENCES Fabricacion(FabricacionID),
+	CHECK (
+        (ProveedorImportadorID IS NOT NULL AND FabricacionID IS NULL) OR 
+        (ProveedorImportadorID IS NULL AND FabricacionID IS NOT NULL)
+    )
 );
-
-CREATE TABLE FaseDiseno (
-    FaseDisenoID INT IDENTITY(1,1) PRIMARY KEY,
-    FabricacionID INT NOT NULL,
-	ProveedorID INT NOT NULL,
-	ProductoID INT NOT NULL,
-	Material VARCHAR(255), -- Descripción de los materiales utilizados
-    TallasDisponibles VARCHAR(100), -- Ejemplo: S, M, L, XL
-    Color VARCHAR(50), -- Color principal del producto
-	CostoFabricacion DECIMAL(10, 2), -- Costo total de la fabricación
-	TiempoProduccion INT, -- Tiempo estimado en días
-	EstadoFabricacion VARCHAR(50), -- Estado actual de la fabricación
-    NumeroReferencia VARCHAR(50), -- Número de referencia único
-    Aprobado BIT NOT NULL,
-    FOREIGN KEY (FabricacionID) REFERENCES Fabricacion(FabricacionID),
-	FOREIGN KEY (ProductoID) REFERENCES Producto(ProductoID),
-	FOREIGN KEY (ProveedorID) REFERENCES Proveedor(ProveedorID)
-);
+--!
 
 CREATE TABLE Cliente (
     ClienteID INT IDENTITY(1,1) PRIMARY KEY,
@@ -106,17 +134,23 @@ CREATE TABLE Empleado (
 
 CREATE TABLE Venta (
     VentaID INT IDENTITY(1,1) PRIMARY KEY,
-    ProductoID INT NOT NULL,
     ClienteID INT NOT NULL,
     EmpleadoID INT,
     TiendaID INT,
     FechaVenta DATE NOT NULL,
-    Cantidad INT NOT NULL,
-    PrecioUnitario DECIMAL(10, 2) NOT NULL,
-    TotalVenta DECIMAL(10, 2) NOT NULL,	
-    FOREIGN KEY (ProductoID) REFERENCES Producto(ProductoID),
+    TotalVenta DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (ClienteID) REFERENCES Cliente(ClienteID),
     FOREIGN KEY (EmpleadoID) REFERENCES Empleado(EmpleadoID),
     FOREIGN KEY (TiendaID) REFERENCES Tienda(TiendaID)
 );
 
+CREATE TABLE DetalleVenta (
+    DetalleVentaID INT IDENTITY(1,1) PRIMARY KEY,
+    VentaID INT NOT NULL,
+    ProductoID INT,
+    Cantidad INT NOT NULL,
+    PrecioUnitario DECIMAL(10, 2) NOT NULL,
+    Total DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (VentaID) REFERENCES Venta(VentaID),
+    FOREIGN KEY (ProductoID) REFERENCES Producto(ProductoID),
+);

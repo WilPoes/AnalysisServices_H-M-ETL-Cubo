@@ -34,6 +34,12 @@
           <AssociatedConnUserName />
           <FullPath>testInserts.sql</FullPath>
         </FileNode>
+        <FileNode Name="testInsertsFinal.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-7N4I3C4:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-7N4I3C4</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>testInsertsFinal.sql</FullPath>
+        </FileNode>
         <FileNode Name="testObservandoModelo.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-7N4I3C4:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>DESKTOP-7N4I3C4</AssociatedConnSrvName>

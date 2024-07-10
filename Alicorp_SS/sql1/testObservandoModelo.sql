@@ -18,23 +18,32 @@ FaseDiseno fase
 INNER JOIN Fabricacion fab
 ON fase.FabricacionID = fab.FabricacionID
 
---I. FABRICACION DISEÑO Y PRODUCTO
-SELECT
+--I. FABRICACION ->PRODUCTO,MARCA,COSTEO,MATERIAL,TALLAS,TIEMPOS,FECHAS
+SELECT *
+FROM
+Venta AS vEN
+
+--II. IMPORTADOS ->FECHA VENTA, TPOTAL VENTA, MARCA, CATEGORIA, NOMBREPROVEEDOR,RUC
+SELECT DISTINCT 
+ven.FechaVenta,
+ven.TotalVenta,
 prod.NombreProducto,
 prod.Marca,
-fase.CostoFabricacion,
-fase.Material,
-fase.TallasDisponibles,
-fase.TiempoProduccion,
-fab.FechaFabricacion,
-fab.FechaEmbalaje,
-fab.NombreFabricacion
+prod.Categoria,
+imp.NombreProveedor,
+imp.RucProveedor
 FROM
-Producto prod
-INNER JOIN FaseDiseno fase 
-ON fase.ProductoID = prod.ProductoID
-INNER JOIN Fabricacion fab
-on fase.FabricacionID = fab.FabricacionID
+Venta AS ven
+INNER JOIN
+DetalleVenta AS det
+ON (ven.VentaID = det.VentaID)
+INNER JOIN 
+Producto AS prod
+ON (prod.ProductoID = det.ProductoID)
+INNER JOIN 
+ProveedoresImportadores AS imp
+ON (imp.ProveedorImportadorID = prod.ProveedorImportadorID)
+
 
 /*
 SELECT DISTINCT 
@@ -45,7 +54,7 @@ INNER JOIN Proveedor prov
 ON (prod.ProveedorID = prov.ProveedorID)
 */
 
---II. CLIENTE
+--III. CLIENTE
 SELECT DISTINCT 
 clie.Genero, 
 clie.FechaNacimiento,
@@ -77,7 +86,7 @@ FROM Tienda tie
 SELECT DISTINCT *
 FROM Promocion
 
---III. PROMOCION TIENDA Y DEPARTAMENTO
+--IV. PROMOCION TIENDA Y DEPARTAMENTO
 SELECT DISTINCT
 prom.NombrePromocion AS Promocion,
 prom.Stock AS StockInicial,
@@ -85,8 +94,7 @@ prom.FechaInicio AS FechaInicial,
 prom.FechaFin AS FechaFinal,
 prom.Descuento AS Descuento,
 tie.Nombre AS Tienda,
-dep.NombreDepartamento AS Departamento,
-dep.CodigoPostal AS CodigoPostal
+dep.NombreDepartamento AS Departamento
 FROM Tienda AS tie
 INNER JOIN Promocion AS prom
 ON tie.promocionID = prom.PromocionID
@@ -97,7 +105,7 @@ ON tie.DepartamentoID = dep.DepartamentoID
 SELECT * 
 FROM Empleado
 
---IV. EMPLEADO CARGO
+--V. EMPLEADO CARGO
 SELECT DISTINCT
 emp.Nombre AS Nombre,
 emp.Apellido AS Apellido,
@@ -106,3 +114,10 @@ FechaContratacion AS FechaContratacionInicial,
 FechaFinalizacion AS FechaContratacionFinal
 FROM Empleado AS emp
 
+--VI. TABLA HECHOS
+SELECT DISTINCT * 
+FROM 
+DetalleVenta as det
+INNER JOIN
+Venta as ven
+ON ven.VentaID = det.VentaID
