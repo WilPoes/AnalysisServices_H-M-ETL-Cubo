@@ -1,30 +1,36 @@
-SELECT DISTINCT *
-FROM Producto
-
-SELECT DISTINCT * 
-FROM
-Fabricacion
-
-SELECT DISTINCT * 
-FROM
-FaseDiseno
-
-SELECT
-fab.FechaFabricacion,
-fab.FechaEmbalaje,
-fab.NombreFabricacion
-FROM
-FaseDiseno fase
-INNER JOIN Fabricacion fab
-ON fase.FabricacionID = fab.FabricacionID
 
 --I. FABRICACION ->PRODUCTO,MARCA,COSTEO,MATERIAL,TALLAS,TIEMPOS,FECHAS
-SELECT *
+SELECT DISTINCT 
+dep.NombreDepartamento,
+ven.FechaVenta,
+ven.TotalVenta,
+prod.NombreProducto,
+prod.Marca,
+prod.Categoria
 FROM
-Venta AS vEN
+Departamento AS dep
+INNER JOIN Tienda AS tien
+ON (dep.DepartamentoID = tien.DepartamentoID)
+INNER JOIN Venta AS ven
+ON (ven.TiendaID = tien.TiendaID)
+INNER JOIN DetalleVenta AS det
+ON (ven.VentaID = det.VentaID)
+INNER JOIN 
+Producto AS prod
+ON (prod.ProductoID = det.ProductoID)
+INNER JOIN 
+Fabricacion AS fab
+ON (fab.FabricacionID = prod.FabricacionID)
+INNER JOIN 
+FaseDisenos AS disen
+ON (disen.FaseDisenoID = fab.FaseDisenoID)
+INNER JOIN 
+ProveedoresMaterial AS provmat
+ON (provmat.ProveedorMaterialID = disen.ProveedorMaterialID)
 
 --II. IMPORTADOS ->FECHA VENTA, TPOTAL VENTA, MARCA, CATEGORIA, NOMBREPROVEEDOR,RUC
 SELECT DISTINCT 
+dep.NombreDepartamento,
 ven.FechaVenta,
 ven.TotalVenta,
 prod.NombreProducto,
@@ -33,9 +39,12 @@ prod.Categoria,
 imp.NombreProveedor,
 imp.RucProveedor
 FROM
-Venta AS ven
-INNER JOIN
-DetalleVenta AS det
+Departamento AS dep
+INNER JOIN Tienda AS tien
+ON (dep.DepartamentoID = tien.DepartamentoID)
+INNER JOIN Venta AS ven
+ON (ven.TiendaID = tien.TiendaID)
+INNER JOIN DetalleVenta AS det
 ON (ven.VentaID = det.VentaID)
 INNER JOIN 
 Producto AS prod
@@ -43,16 +52,6 @@ ON (prod.ProductoID = det.ProductoID)
 INNER JOIN 
 ProveedoresImportadores AS imp
 ON (imp.ProveedorImportadorID = prod.ProveedorImportadorID)
-
-
-/*
-SELECT DISTINCT 
-prod.NombreProducto AS Producto ,
-prov.NombreProveedor AS Proveedor 
-FROM producto prod
-INNER JOIN Proveedor prov
-ON (prod.ProveedorID = prov.ProveedorID)
-*/
 
 --III. CLIENTE
 SELECT DISTINCT 
@@ -62,15 +61,6 @@ clie.Nombre,
 clie.Apellido
 FROM Cliente clie
 
-SELECT DISTINCT *
-FROM Cliente clie
-
-SELECT DISTINCT *
-FROM Tienda tie
-
-SELECT DISTINCT *
-FROM Departamento depa
-
 --DEPARTAMENTO Y TIENDA
 SELECT 
 depa.NombreDepartamento AS Departamento,
@@ -79,12 +69,6 @@ tie.Nombre AS Tienda
 FROM Tienda AS tie
 INNER JOIN Departamento AS depa
 ON tie.DepartamentoID = depa.DepartamentoID
-
-SELECT DISTINCT *
-FROM Tienda tie
-
-SELECT DISTINCT *
-FROM Promocion
 
 --IV. PROMOCION TIENDA Y DEPARTAMENTO
 SELECT DISTINCT
@@ -100,10 +84,6 @@ INNER JOIN Promocion AS prom
 ON tie.promocionID = prom.PromocionID
 INNER JOIN Departamento AS dep
 ON tie.DepartamentoID = dep.DepartamentoID
-
-
-SELECT * 
-FROM Empleado
 
 --V. EMPLEADO CARGO
 SELECT DISTINCT
